@@ -6,6 +6,7 @@ import { ClientAddComponent } from "./client-add/client-add.component";
 import { ClientDetailComponent } from "./client-detail/client-detail.component";
 import { ProjectAddComponent } from "./project-add/project-add.component";
 import { ProjectDetailComponent } from "./project-detail/project-detail.component";
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path: 'client-list', component: ClientListComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'project-list', component: ProjectListComponent},
   {path: 'project-add', component: ProjectAddComponent},
   {path: 'project-detail', component: ProjectDetailComponent},
+  {path: 'homepage', component: HomepageComponent}
 ];
 
 @NgModule({
