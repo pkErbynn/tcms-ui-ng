@@ -3,10 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ClientListComponent } from './client-list/client-list.component';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ClientAddComponent } from './client-add/client-add.component';
+import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectAddComponent } from './project-add/project-add.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClientListComponent,
+    ProjectListComponent,
+    ClientAddComponent,
+    ClientDetailComponent,
+    ProjectDetailComponent,
+    ProjectAddComponent
   ],
   imports: [
     BrowserModule,
