@@ -10,6 +10,7 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ClientTemplateComponent } from './client-template/client-template.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ClientDetailComponent,
     ProjectDetailComponent,
     ProjectAddComponent,
-    HomepageComponent
+    HomepageComponent,
+    ClientTemplateComponent
   ],
   imports: [
     BrowserModule,
