@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
-import { HttpClient } from 'selenium-webdriver/http';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClient } from 'selenium-webdriver/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

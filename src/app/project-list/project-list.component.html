@@ -20,38 +20,16 @@
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Detail</th>
-
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>POJO</td>
-                <td>Plain Old Java Object</td>
+            <tr *ngFor="let project of projectList">
+                <th scope="row">{{project.project_id}}</th>
+                <td>{{project.project_name}}}</td>
+                <td>{{project.description}}</td>
                 <td><a routerLink="/project-detail">view details</a></td>
-
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>tcms java</td>
-                <td>turntable client mgmnt system in java</td>
-                <td><a routerLink="/project-detail">view details</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>tcms scala</td>
-                <td>turntabl project mgmt system in Scal</td>
-                <td><a routerLink="/project-detail">view details</a></td>
-
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>micro-services</td>
-                <td>project micro-service on heroku</td>
-                <td><a routerLink="/project-detail">view details</a></td>
-
-            </tr>
+            
         </tbody>
     </table>
 </div><br>
