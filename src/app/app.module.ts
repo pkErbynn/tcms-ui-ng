@@ -11,6 +11,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ClientTemplateComponent } from './client-template/client-template.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
