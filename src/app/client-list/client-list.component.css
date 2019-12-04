@@ -83,3 +83,13 @@ ul.topnav li.right {
     color: #404040;
     background-color: white;
 }
+
+tr.even{
+    background: red;
+    color: white;
+}
+
+tr.even{
+    background: black;
+    color: white;
+}
