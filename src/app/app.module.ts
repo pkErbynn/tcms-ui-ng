@@ -28,7 +28,8 @@ import { ClientTemplateComponent } from './client-template/client-template.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
