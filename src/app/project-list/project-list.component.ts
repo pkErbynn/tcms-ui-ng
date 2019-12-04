@@ -12,8 +12,6 @@ export class ProjectListComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   projectList2 = [
     {
       project_id: 1,
@@ -21,6 +19,5 @@ export class ProjectListComponent implements OnInit {
       description: "working"
     }
    ]
-
 
 }
