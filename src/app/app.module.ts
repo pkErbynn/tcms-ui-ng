@@ -11,7 +11,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
