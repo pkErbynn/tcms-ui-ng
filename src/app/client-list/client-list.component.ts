@@ -12,4 +12,28 @@ export class ClientListComponent implements OnInit {
   ngOnInit() {
   }
 
+  clientList =[
+    {
+      id: 1,
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      id: 1,
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      id: 1,
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    }
+  ]
+
 }
