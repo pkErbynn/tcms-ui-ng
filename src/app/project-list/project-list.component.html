@@ -1,1 +1,57 @@
-<p>project-list works!</p>
+<div class="float-right" style="padding-right: 80px;">
+    <a routerLink="/project-add">
+        <button type="button" class="btn btn-outline-primary">Add project</button>
+    </a>
+</div>
+<br>
+
+<div class="container">
+    <h4>
+        Project list
+    </h4>
+</div>
+<hr>
+<br>
+<div id="project-list" class="container">
+    <table class="table table-striped center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Detail</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>POJO</td>
+                <td>Plain Old Java Object</td>
+                <td><a routerLink="/project-detail">view details</a></td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>tcms java</td>
+                <td>turntable client mgmnt system in java</td>
+                <td><a routerLink="/project-detail">view details</a></td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>tcms scala</td>
+                <td>turntabl project mgmt system in Scal</td>
+                <td><a routerLink="/project-detail">view details</a></td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>micro-services</td>
+                <td>project micro-service on heroku</td>
+                <td><a routerLink="/project-detail">view details</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div><br>
