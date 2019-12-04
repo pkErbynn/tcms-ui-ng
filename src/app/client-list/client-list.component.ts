@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../services/client.service';
-import { Client } from '../interfaces/client';
 
 @Component({
   selector: 'app-client-list',
@@ -9,17 +7,42 @@ import { Client } from '../interfaces/client';
 })
 export class ClientListComponent implements OnInit {
 
-  public clientList = [];
-
-  constructor(private clientService: ClientService) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this.clientService.getClients()
-    .subscribe(data => {
-      this.clientList = data;
-    });
   }
 
+  clientList =[
+    {
+      name: "john erbynn...",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    }
+  ]
 
 }
