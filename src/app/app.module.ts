@@ -27,8 +27,7 @@ import { HttpClient } from 'selenium-webdriver/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
