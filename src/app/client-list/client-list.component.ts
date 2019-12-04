@@ -14,9 +14,12 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit() {
     this.clientService._getClients().subscribe(data => {
-      
+      this.clientList = data;
+      console.log(data)
     })
   }
+
+
 
   // clientList =[
   //   {
