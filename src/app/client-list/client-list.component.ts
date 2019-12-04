@@ -15,7 +15,7 @@ export class ClientListComponent implements OnInit {
   clientList =[
     {
       id: 1,
-      name: "john erbynn",
+      name: "john erbynn...",
       email: "me@gmail.com",
       telephone: "+223 55 347 2114",
       address: "norway, taifa, accra, gh"
@@ -28,7 +28,21 @@ export class ClientListComponent implements OnInit {
       address: "norway, taifa, accra, gh"
     },
     {
-      id: 1,
+      id: 2,
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      id: 3,
+      name: "john erbynn",
+      email: "me@gmail.com",
+      telephone: "+223 55 347 2114",
+      address: "norway, taifa, accra, gh"
+    },
+    {
+      id: 4,
       name: "john erbynn",
       email: "me@gmail.com",
       telephone: "+223 55 347 2114",
