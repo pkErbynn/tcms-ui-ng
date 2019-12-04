@@ -22,12 +22,12 @@ export class ProjectListComponent implements OnInit {
   }
 
 
-  // projectList2 = [
-  //   {
-  //     project_id: 1,
-  //     project_name: "hone",
-  //     description: "working"
-  //   }
-  //  ]
+  projectList2 = [
+    {
+      project_id: 1,
+      project_name: "hone",
+      description: "working"
+    }
+   ]
 
 }
