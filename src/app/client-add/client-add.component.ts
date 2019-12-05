@@ -11,9 +11,9 @@ import { ClientService } from '../services/client.service';
 export class ClientAddComponent implements OnInit {
   clientRegisterForm = new FormGroup({
     name: new FormControl(''),
-    email: new FormControl(''),
-    telephone: new FormControl(''),
     address: new FormControl(''),
+    telephoneNumber: new FormControl(''),
+    email: new FormControl(''),
   });
 
   feedback: string = "";
