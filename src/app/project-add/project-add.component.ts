@@ -9,9 +9,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ProjectAddComponent implements OnInit {
   projectRegisterForm = new FormGroup({
-    projectName: new FormControl(''),
+    project_name: new FormControl(''),    // form control name must much that of db
     description: new FormControl(''),
   });
+  feedback: string = "";
 
   constructor(private projectService: ProjectService) { }
 
@@ -23,6 +24,7 @@ export class ProjectAddComponent implements OnInit {
     this.projectService.postProject(this.projectRegisterForm.value).subscribe(data => {
       console.log(data);
     })
+    this.feedback = "new project added successfully :)"
   }
 
 }

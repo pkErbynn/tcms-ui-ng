@@ -1,17 +1,19 @@
 <div class="container">
     <h4>
             Add new project
-
     </h4>
 </div>
 <hr>
-<br>
+
+<div class="container" style="color: green;">
+        <h5> {{feedback}}</h5>
+</div>
 
 <div class="container" style="width: 50%;">
      <form [formGroup]="projectRegisterForm" (ngSubmit)="onSubmit()"> 
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" formControlName="projectName" required>
+                <input type="text" class="form-control" id="name" formControlName="project_name" required>
             </div>
             <div class="form-group">
                 <label for="desc">Description:</label>
