@@ -6,8 +6,9 @@ import { ClientService } from '../services/client.service';
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.css']
 })
-export class ClientListComponent implements OnInit {
 
+export class ClientListComponent implements OnInit {
+  
   public clientList = []
 
   // To make our services available to Component classes, inject services in the constructors 
