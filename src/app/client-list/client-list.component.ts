@@ -10,9 +10,12 @@ export class ClientListComponent implements OnInit {
 
   public clientList = []
 
-  constructor(private clientService: ClientService) { }
+  // To make our services available to Component classes, inject services in the constructors 
+  constructor(private clientService: ClientService) { }   
 
   ngOnInit() {
+    // An HttpClient method does not begin its HTTP request until you call subscribe() on the observable returned by that method
+    // always subscribe to the data that is returned from the server.
     this.clientService._getClients().subscribe(data => {
       this.clientList = data;
       console.log(data)
