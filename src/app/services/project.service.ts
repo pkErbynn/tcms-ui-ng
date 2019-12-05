@@ -9,7 +9,6 @@ import { Project } from '../interfaces/project';
 export class ProjectService {
 
   private url: string = "https://desolate-reaches-15540.herokuapp.com/";
-  private addUrl: string = "https://desolate-reaches-15540.herokuapp.com/project/add";
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +17,6 @@ export class ProjectService {
   }
 
   postProject(project: Project): Observable<Project>{
-    return this.http.post<Project>(this.addUrl, project);
+    return this.http.post<Project>(this.url + "project/add", project);
   }
 }
