@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-// import { FormBuilder, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-client-add',
@@ -14,23 +15,19 @@ export class ClientAddComponent implements OnInit {
     telephone: new FormControl(''),
     address: new FormControl(''),
   });
-  // name = new FormControl('');
-  // registerClientForm: FormGroup;
-  // submitted = false;
 
-  constructor(/*private formBuilder: FormBuilder*/) { }
+  feedback: string = "";
 
-  ngOnInit() {
-    // this.registerClientForm = this.formBuilder.group({
-    //   name: ['', Validators.required],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   telephone: ['', Validators.required],
-    //   address: ['', Validators.required]
-    // });
-  }
+  constructor(private clientService: ClientService) { }
+
+  ngOnInit() {}
 
   onSubmit(){
+    this.clientService._postClient(this.clientRegisterForm.value).subscribe(data=> {
+      console.log(data)
+    })
     console.log(this.clientRegisterForm.value);
+    this.feedback = "new client added successfully :) "
   }
 
   //  onSubmit() {
