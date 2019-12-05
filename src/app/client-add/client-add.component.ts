@@ -29,6 +29,10 @@ export class ClientAddComponent implements OnInit {
     // });
   }
 
+  onSubmit(){
+    console.log(this.clientRegisterForm.value);
+  }
+
   //  onSubmit() {
   //       this.submitted = true;
 
