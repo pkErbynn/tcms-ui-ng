@@ -9,15 +9,14 @@
     <h5>Project list</h5>
 </div>
 <hr>
-<br>
 
 <div class="container">
     <form [formGroup]="searchProjectForm" (ngSubmit)="onSubmit()" class="form-inline md-form mr-auto mb-4">
         <input formControlName="project_name" class="form-control mr-sm-2" type="search" placeholder="Search project name"
             aria-label="Search">
         <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
+        <h6 style="float: right; padding-left: 50px;"> Available: {{projectList.length}}</h6>
     </form>
-    <span> Available: {{projectList.length}}</span>
 </div>
 
 <br>
