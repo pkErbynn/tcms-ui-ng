@@ -22,29 +22,31 @@ export class ProjectListComponent implements OnInit {
       this.projectList = data;
       console.log(data)
     });
-    this.onStartup();
-  }
-
-  onStartup() {
-    console.log("Init callback test");
-    function count() {
-      for (var i = 0; i < 5; ++i) {
-        console.log(i)
-      }
-    }
-    count();
-
-    let anonymous = (x: number, y: number) => x + y;
-    console.log("result: " + anonymous(5, 5))
+    // this.onStartup();
   }
 
   onSubmit() {
     console.log(this.searchProjectForm.value.project_name);
-    console.log("without project name: " + this.searchProjectForm.value);
     this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(data => {
       console.log(data)
     })
   }
+
+
+
+  // onStartup() {
+  //   console.log("Init callback test");
+  //   function count() {
+  //     for (var i = 0; i < 5; ++i) {
+  //       console.log(i)
+  //     }
+  //   }
+  //   count();
+
+  //   let anonymous = (x: number, y: number) => x + y;
+  //   console.log("result: " + anonymous(5, 5))
+  // }
+
 
   // projectList2 = [
   //   {
@@ -58,5 +60,7 @@ export class ProjectListComponent implements OnInit {
     //     description: "working"
     //   }
   //  ]
+
+
 
 }
