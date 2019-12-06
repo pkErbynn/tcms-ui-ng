@@ -20,8 +20,8 @@ export class ProjectService {
     return this.http.post<Project>(this.url + "project/add", project);
   }
 
-  getProjectByName(projectName: string): Observable<Project>{
-    return this.http.get<Project>(this.url + "project/search/name/", );
+  getProjectByName(projectName: string): Observable<Project[]>{
+    return this.http.get<Project[]>(this.url + "project/search/name/", );
   }
 
   // deleteProject(projectId: string):{
