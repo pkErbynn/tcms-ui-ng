@@ -26,9 +26,10 @@ export class ProjectListComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.searchProjectForm.value.project_name);
-    this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(data => {
-      console.log(data)
+    // console.log(this.searchProjectForm.value.project_name);
+    this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(data => {   // always subscribe
+      this.projectList = data;    // store in var for display
+      console.log(data)   // don't concat with string
     })
   }
 
