@@ -11,11 +11,34 @@
 <hr>
 <br>
 
+
+<!-- <div class="container"> -->
+<!-- [formGroup]="projectSearchForm"
+        (ngSubmit)="onSubmit()"
+        [disabled]="!projectRegisterForm.valid" -->
+
+<!-- Search form -->
+
+
+<!-- <form class="form-inline md-form mr-auto mb-4" [formGroup]="projectSearchForm" (ngSubmit)="onSubmit()">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+        [formControlName]="project_name">
+    <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+</form> -->
+<div class="container">
+        <form [formGroup]="searchProjectForm" (ngSubmit)="onSubmit()" class="form-inline md-form mr-auto mb-4">
+                <input formControlName="project_name" class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search">
+                <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
+        </form>
+</div>
+
+<br>
+
 <div id="project-list" class="container">
     <table class="table table-striped center">
         <thead>
             <tr>
-                <th scope="col">Id #</th>
+                <!-- <th scope="col">Id #</th> -->
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Detail</th>
@@ -23,12 +46,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let project of projectList">
-                <td> {{ project.project_id }} </td>
+                <!-- <td> {{ project.project_id }} </td> -->
                 <td> {{ project.project_name }} </td>
                 <td> {{ project.description }} </td>
-                <td> <a routerLink="/project-detail"> view </a>
-                </td>
-            </tr>        
+                <td> <a routerLink="/project-detail"> view </a> </td>
+            </tr>
         </tbody>
     </table>
 </div><br>
