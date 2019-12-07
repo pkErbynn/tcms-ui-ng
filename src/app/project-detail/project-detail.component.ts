@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../interfaces/project';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-project-detail',
@@ -9,18 +11,23 @@ import { Project } from '../interfaces/project';
 })
 export class ProjectDetailComponent implements OnInit {
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   public projectDetail: Project;
-  // id:number ;
+  id: string ;
 
 
   ngOnInit() {
-    this.getProjectDetailById()
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      console.log(this.id)
+    });
+    console.log("here...." + this.id)
+    this.getProjectDetailById(7);
   }
 
-  getProjectDetailById(){
-    return this.projectService.getProjectById(7)
+  getProjectDetailById(pId: number){
+    return this.projectService.getProjectById(pId)
     .subscribe(data => {
       console.log(data)
       this.projectDetail = data;
