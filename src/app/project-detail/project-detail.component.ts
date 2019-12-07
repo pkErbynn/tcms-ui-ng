@@ -13,18 +13,36 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
-  public projectDetail: Project;
-  id: string ;
-
+  projectDetail: Project;
+  projectId: string ;
+  // projectList: Project[];
+  // project: Project = this.projectList[0];
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-      console.log(this.id)
+      this.projectId = params.get('id'); // grabs the dynamic path para values, string by default 
+      console.log(this.projectId)
     });
-    console.log("here...." + this.id)
-    let castId = +this.id // number casting
-    this.getProjectDetailById(7);
+    console.log("here......." + this.projectId)
+    let castId = +this.projectId // number casting
+    this.getProjectDetailById(castId);
+
+    // this.projectService.getProjects().subscribe(
+    //   data => {
+    //     this.projectList = data;
+    //     console.log("here..." + data)
+    //   });
+
+    //   this.route.paramMap.subscribe(params => {
+    //     this.projectList.forEach((p: Project) => {
+    //       if (p.project_id == params.get('id')) {
+    //         this.project = p;
+    //         console.log("works..." + this.project)
+
+    //       }
+    //     });
+    //     console.log("works..." + this.project)
+    //   });
   }
 
   getProjectDetailById(pId: number){
@@ -34,14 +52,5 @@ export class ProjectDetailComponent implements OnInit {
       this.projectDetail = data;
     })
   }
-
-  // getAllProjectDetails(){
-  //   return this.projectService.getProjects()
-  //   .subscribe(data => {
-  //     console.log("inside all project" + data)
-  //     this.allProjectDetails = data;
-  //     // console.log(this.allProjectDetails)
-  //   })
-  // }
 
 }
