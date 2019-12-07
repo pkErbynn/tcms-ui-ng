@@ -16,13 +16,13 @@
             <input type="text" class="form-control" id="name" formControlName="project_name" [class.is-invalid]="projectName.invalid && 
                 projectName.touched" required>
             <!-- single validation -->
-            <small class="text-danger" [class.d-none]="projectName.valid ||
-             projectName.untouched"> Project name is required </small>
-            <!-- <div *ngIf="projectName.invalid && projectName.touch">
+            <!-- <small class="text-danger" [class.d-none]="projectName.valid ||
+             projectName.untouched"> Project name is required </small> -->
+            <div *ngIf="projectName.invalid && projectName.touched">
                 <small class="text-danger" *ngIf="projectName.errors?.required"> Project name is required </small>
-                <small class="text-danger" *ngIf="projectName.errors?.minlenght"> Project name must be at least 3
+                <small class="text-danger" *ngIf="projectName.errors?.minlength"> Project name must be at least 3
                     characters </small>
-            </div> -->
+            </div>
         </div>
         <div class="form-group">
             <label for="desc">Description:</label>
@@ -32,7 +32,7 @@
                 <small class="text-danger" *ngIf="projectDescription.errors?.required"> Project description is required
                 </small>
                 <small class="text-danger" *ngIf="projectDescription.errors?.minlength"> Project description must be at
-                    least 3 characters </small>
+                    least 5 characters </small>
             </div>
         </div>
 
