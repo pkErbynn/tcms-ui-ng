@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,13 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./project-add.component.css']
 })
 export class ProjectAddComponent implements OnInit {
-  projectRegisterForm = new FormGroup({
-    project_name: new FormControl(''),    // form control name must much that of db
-    description: new FormControl(''),
+
+  constructor(private projectService: ProjectService, private router: Router, private formBuilder: FormBuilder) { }
+
+  // projectRegisterForm = new FormGroup({
+  //   project_name: new FormControl(''),    // form control name must much that of db
+  //   description: new FormControl(''),
+  // });
+  
+  projectRegisterForm = this.formBuilder.group({
+    project_name: [''],
+    description: ['']
   });
+
   // feedback: string = "";
 
-  constructor(private projectService: ProjectService, private router: Router) { }
+
+  
 
   ngOnInit() {
   }
