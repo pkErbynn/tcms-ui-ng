@@ -13,7 +13,7 @@ export class ProjectAddComponent implements OnInit {
     project_name: new FormControl(''),    // form control name must much that of db
     description: new FormControl(''),
   });
-  feedback: string = "";
+  // feedback: string = "";
 
   constructor(private projectService: ProjectService, private router: Router) { }
 
@@ -24,9 +24,11 @@ export class ProjectAddComponent implements OnInit {
     console.log(this.projectRegisterForm.value);
     this.projectService.postProject(this.projectRegisterForm.value).subscribe(data => {
       console.log(data);
+      alert('New project added successfully :)');
       this.router.navigate(['project-list']);
     })
-    this.feedback = "new project added successfully :)"
+    // this.feedback = "new project added successfully :)"
+
   }
 
 }
