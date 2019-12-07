@@ -13,6 +13,8 @@ import { ProjectAddComponent } from './project-add/project-add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientService } from './services/client.service';
+import { ProjectService } from './services/project.service';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ClientService,
+    ProjectService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

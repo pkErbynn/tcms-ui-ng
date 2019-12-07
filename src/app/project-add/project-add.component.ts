@@ -20,7 +20,7 @@ export class ProjectAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit(){   
     console.log(this.projectRegisterForm.value);
     this.projectService.postProject(this.projectRegisterForm.value).subscribe(data => {
       console.log(data);

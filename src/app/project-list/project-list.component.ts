@@ -15,7 +15,8 @@ export class ProjectListComponent implements OnInit {
     project_name: new FormControl('')
   });
 
-  constructor(private projectService: ProjectService) { }
+   // creates field and init like scala...public if accessible outside class 
+  constructor(private projectService: ProjectService) { }  
 
   ngOnInit() {
     this.projectService.getProjects().subscribe(data => {
@@ -25,7 +26,8 @@ export class ProjectListComponent implements OnInit {
     // this.onStartup();
   }
 
-  onSubmit() {
+
+  onSubmit() {    // () are public by default...so no need to specify if public
     // console.log(this.searchProjectForm.value.project_name);
     this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(  // always subscribe
       data => {   
@@ -46,7 +48,7 @@ export class ProjectListComponent implements OnInit {
   //     }
   //   }
   //   count();
-
+ // creates field and init like scala...public is accessi
   //   let anonymous = (x: number, y: number) => x + y;
   //   console.log("result: " + anonymous(5, 5))
   // }
