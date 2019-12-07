@@ -11,21 +11,29 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(private projectService: ProjectService) { }
 
-  public projectDetails: Project;
+  public projectDetail: Project;
   // id:number ;
 
+
   ngOnInit() {
-    // this.id = this.projectDetails.project_id;
-    this.showProjectDetails()
+    this.getProjectDetailById()
   }
 
-  showProjectDetails(){
-    return this.projectService.getProjects()
+  getProjectDetailById(){
+    return this.projectService.getProjectById(7)
     .subscribe(data => {
-      console.log(data[2])
-      this.projectDetails = data[0];
-      console.log(this.projectDetails.project_id)
+      console.log(data)
+      this.projectDetail = data;
     })
   }
+
+  // getAllProjectDetails(){
+  //   return this.projectService.getProjects()
+  //   .subscribe(data => {
+  //     console.log("inside all project" + data)
+  //     this.allProjectDetails = data;
+  //     // console.log(this.allProjectDetails)
+  //   })
+  // }
 
 }
