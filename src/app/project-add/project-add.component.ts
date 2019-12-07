@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-add',
@@ -14,7 +15,7 @@ export class ProjectAddComponent implements OnInit {
   });
   feedback: string = "";
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,7 @@ export class ProjectAddComponent implements OnInit {
     console.log(this.projectRegisterForm.value);
     this.projectService.postProject(this.projectRegisterForm.value).subscribe(data => {
       console.log(data);
+      this.router.navigate(['project-list']);
     })
     this.feedback = "new project added successfully :)"
   }

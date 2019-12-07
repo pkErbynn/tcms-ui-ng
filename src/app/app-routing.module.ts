@@ -18,7 +18,9 @@ const routes: Routes = [
   {path: 'project-add', component: ProjectAddComponent},
   {path: 'project-detail', component: ProjectDetailComponent},
   {path: 'homepage', component: HomepageComponent},
-  {path: 'client-template', component: ClientTemplateComponent}
+  {path: 'client-template', component: ClientTemplateComponent},
+  // { path : '', redirectTo : 'users', pathMatch : 'full'}
+
 ];
 
 @NgModule({
