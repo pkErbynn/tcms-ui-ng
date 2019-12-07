@@ -1,25 +1,26 @@
 <div class="container">
     <h4>
-            Add new project
+        Add new project
     </h4>
 </div>
 <hr>
 
 <div class="container" style="color: green;">
-        <h5> {{feedback}}</h5>
+    <h5> {{feedback}}</h5>
 </div>
 
 <div class="container" style="width: 50%;">
-     <form [formGroup]="projectRegisterForm" (ngSubmit)="onSubmit()"> 
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" formControlName="project_name" required>
-            </div>
-            <div class="form-group">
-                <label for="desc">Description:</label>
-                <input type="text" class="form-control" id="desc" formControlName="description" required>
-            </div>
-            
-            <button type="submit" class="btn btn-primary" [disabled]="!projectRegisterForm.valid">Submit</button>
-        </form>
-    </div><br><br>
+    <form [formGroup]="projectRegisterForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" formControlName="project_name" [class.is-invalid]="projectRegisterForm.get('project_name').invalid && 
+                projectRegisterForm.get('project_name').touched" required>
+        </div>
+        <div class="form-group">
+            <label for="desc">Description:</label>
+            <input type="text" class="form-control" id="desc" formControlName="description" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!projectRegisterForm.valid">Submit</button>
+    </form>
+</div><br><br>

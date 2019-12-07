@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,16 +16,14 @@ export class ProjectAddComponent implements OnInit {
   //   project_name: new FormControl(''),    // form control name must much that of db
   //   description: new FormControl(''),
   // });
-  
+
   projectRegisterForm = this.formBuilder.group({
-    project_name: [''],
-    description: ['']
+    project_name: ['', Validators.required],
+    description: ['', Validators.required]
   });
 
   // feedback: string = "";
 
-
-  
 
   ngOnInit() {
   }
