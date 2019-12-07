@@ -21,11 +21,9 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.projectId = params.get('id'); // grabs the dynamic path para values, string by default 
-      console.log(this.projectId)
+      // console.log(this.projectId)
     });
-    console.log("here......." + this.projectId)
-    let castId = +this.projectId // number casting
-    this.getProjectDetailById(castId);
+    this.getProjectDetailById(+this.projectId);
 
     // this.projectService.getProjects().subscribe(
     //   data => {
