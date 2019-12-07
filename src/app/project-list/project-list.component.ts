@@ -27,10 +27,13 @@ export class ProjectListComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.searchProjectForm.value.project_name);
-    this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(data => {   // always subscribe
-      this.projectList = data;    // store in var for display
-      console.log(data)   // don't concat with string
-    })
+    this.projectService.getProjectByName(this.searchProjectForm.value.project_name).subscribe(
+      data => {   // always subscribe
+        this.projectList = data;    // store in var for display
+        console.log(data)   // don't concat with string
+      }, 
+      error => { console.log(error); }
+      )
   }
 
 
@@ -56,10 +59,10 @@ export class ProjectListComponent implements OnInit {
   //     description: "working"
   //   },
   // {
-    //     project_id: 1,
-    //     project_name: "hone",
-    //     description: "working"
-    //   }
+  //     project_id: 1,
+  //     project_name: "hone",
+  //     description: "working"
+  //   }
   //  ]
 
 

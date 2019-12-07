@@ -19,7 +19,7 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('project_id');
+      this.id = params.get('id');
       console.log(this.id)
     });
     console.log("here...." + this.id)

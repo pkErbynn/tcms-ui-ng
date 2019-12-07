@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'client-detail', component: ClientDetailComponent},
   {path: 'project-list', component: ProjectListComponent},
   {path: 'project-add', component: ProjectAddComponent},
-  {path: 'project-detail', component: ProjectDetailComponent},
+  {path: 'project-detail/:id', component: ProjectDetailComponent},
   {path: 'homepage', component: HomepageComponent},
   {path: 'client-template', component: ClientTemplateComponent},
   // { path : '', redirectTo : 'users', pathMatch : 'full'}
