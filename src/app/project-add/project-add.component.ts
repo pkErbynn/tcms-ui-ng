@@ -39,7 +39,7 @@ export class ProjectAddComponent implements OnInit {
   onSubmit(){   
     console.log(this.projectRegisterForm.value);
     this.projectService.postProject(this.projectRegisterForm.value).subscribe(data => {
-      console.log(data);
+      console.log("works!", data);
       alert('New project added successfully :)');
       this.router.navigate(['project-list']);
     })
