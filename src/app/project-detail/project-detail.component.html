@@ -20,14 +20,17 @@
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div> -->
 
-            <div class="card-body">{{ projectDetail | json }}
-                <h5 class="card-title">Name: {{ projectDetail?.project_name }}</h5>
-                <p class="card-text"> Description: {{ projectDetail?.description }} </p>
+            <div class="card-body">
+                    <ng-container *ngIf="projectDetail">
+                <h5 class="card-title">Name: {{ projectDetail.project_name }}</h5>
+                <p class="card-text"> Description: {{ projectDetail.description }} </p>
                 <p class="card-text">Client: <a routerLink="/client-detail">Johnny Pk Erbynn</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 4 mins ago</small></p>
                 <button type="submit" class="btn btn-lg btn-success btn-sm">Update</button> 
                 <button type="submit" class="btn btn-lg btn-danger btn-sm">Delete</button>
                 <!-- <button type="submit" class="btn btn-lg btn-danger btn-sm" (click)="delete(project.project_id)">Delete</button> -->
+            </ng-container>
+
             </div>
         </div>
     </div>
