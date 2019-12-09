@@ -18,9 +18,9 @@ export class ProjectAddComponent implements OnInit {
   // });
 
   projectRegisterForm = this.formBuilder.group({
-    project_name: ['', [Validators.required, Validators.minLength(3)]],
     // project_name: ['', Validators.required],
-    description: ['', [Validators.required, Validators.minLength(5)]]
+    project_name: ['', [Validators.required, Validators.minLength(3)]],
+    description: ['', [Validators.required, Validators.minLength(4)]]
   });
 
   get projectName(){
@@ -30,6 +30,7 @@ export class ProjectAddComponent implements OnInit {
   get projectDescription(){
     return this.projectRegisterForm.get('description')
   }
+
   // feedback: string = "";
 
 
