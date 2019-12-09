@@ -21,9 +21,8 @@
             </div> -->
 
             <div class="card-body">{{ projectDetail | json }}
-                projectDetail as projectDetail
-                <h5 class="card-title">Name: {{ projectDetail.project_name }}</h5>
-                <p class="card-text"> Description: {{ projectDetail }} </p>
+                <h5 class="card-title">Name: {{ projectDetail?.project_name }}</h5>
+                <p class="card-text"> Description: {{ projectDetail?.description }} </p>
                 <p class="card-text">Client: <a routerLink="/client-detail">Johnny Pk Erbynn</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 4 mins ago</small></p>
                 <button type="submit" class="btn btn-lg btn-success btn-sm">Update</button> 
