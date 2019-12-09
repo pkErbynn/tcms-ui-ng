@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../interfaces/project';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -14,14 +14,14 @@ export class ProjectDetailComponent implements OnInit {
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   projectDetail: Project;
-  projectId: string;
+  projectId: number;
 
   ngOnInit() {
-    this.projectId = this.route.snapshot.params['id'];
-    // this.route.paramMap.subscribe(params => {    // alt
-    //   this.projectId = params.get('id'); // grabs the dynamic path para values, string by default 
-    //   // console.log(this.projectId)
-    // });
+    // this.projectId = this.route.snapshot.params['id'];
+    this.route.paramMap.subscribe((params: ParamMap) => {    // alt
+      this.projectId = parseInt(params.get('id')); // grabs the dynamic path para values, string by default 
+      // console.log(this.projectId)
+    });
 
     this.getProjectDetailById(+this.projectId);   // number casting with + 
 
