@@ -17,6 +17,8 @@ export class ProjectService {
   // }
 
   getCors() {
-    return this.http.get('http://localhost:8080/v1/api/availableEmployees?endDate=2020-04-10&startDate=2020-04-20');
+    return this.http.get(
+      'https://timeui.herokuapp.com/v1/api/availableEmployees?endDate=2020-04-20&startDate=2020-04-30'
+    );
   }
 }
