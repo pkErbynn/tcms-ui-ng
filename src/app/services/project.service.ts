@@ -4,34 +4,19 @@ import { Observable } from 'rxjs';
 import { Project } from "../interfaces/project";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ProjectService {
+  private url: String =
+    'http://localhost:8080/v1/api/availableEmployees?endDate=2020-04-10&startDate=2020-04-20';
 
-  private url: string = "https://desolate-reaches-15540.herokuapp.com/";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getProjects(): Observable<Project[]>{
-    return this.http.get<Project[]>(this.url);
-  }
-
-  postProject(project: Project): Observable<Project>{
-    return this.http.post<Project>(this.url + "project/add", project);
-  }
-
-  getProjectByName(name: string): Observable<Project[]>{
-    // console.log(name)
-    return this.http.get<Project[]>(this.url + "project/search/name/"+ name);   // be wary...this isn't a post
-  }
-
-  getProjectById(id: number): Observable<Project>{
-    return this.http.get<Project>(this.url + "project/search/id/" + id);
-  }
-
-  // deleteProject(projectId: string):{
-  //   return null;
+  // getProjectById(id: number): Observable<Project>{
+  //   return this.http.get<Project>(this.url + "project/search/id/" + id);
   // }
 
-  // updateProject(project: Project)
+  getCors() {
+    return this.http.get('http://localhost:8080/v1/api/availableEmployees?endDate=2020-04-10&startDate=2020-04-20');
+  }
 }
