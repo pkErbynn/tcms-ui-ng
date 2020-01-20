@@ -12,8 +12,8 @@
 
 <div class="container">
     <form [formGroup]="searchProjectForm" (ngSubmit)="onSubmit()" class="form-inline md-form mr-auto mb-4">
-        <input formControlName="project_name" class="form-control mr-sm-2" type="search"
-            placeholder="Search project name" aria-label="Search">
+        <input formControlName="project_name" class="form-control mr-sm-2" type="search" placeholder="Search project name"
+            aria-label="Search">
         <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
         <h6 style="float: right; padding-left: 50px;"> Available: {{projectList.length}}</h6>
     </form>
@@ -25,7 +25,7 @@
     <table class="table table-striped center">
         <thead>
             <tr>
-                <!-- <th scope="col">Id #</th> ..... sensitive data -->
+                <!-- <th scope="col">Id #</th> ..... sensitive data -->      
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Detail</th>
@@ -36,10 +36,7 @@
                 <!-- <td> {{ project.project_id }} </td> -->
                 <td> {{ project.project_name }} </td>
                 <td> {{ project.description }} </td>
-                <td> <a [routerLink]="['/project-detail/', project.project_id ]">
-                        <button type="button" class="btn btn-success btn-sm"> view </button>
-                    </a>
-                </td>
+                <td> <a [routerLink]="['/project-detail/', project.project_id ]"> view </a> </td>
 
             </tr>
         </tbody>
