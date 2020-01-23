@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+// tslint:disable-next-line: label-position
 
 @Component({
   selector: 'app-root',

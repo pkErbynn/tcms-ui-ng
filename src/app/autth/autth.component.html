@@ -1,8 +1,14 @@
 
+ <!-- <p style="color:#E92626;font-size:20px;font-weight:normal" Class="success" align="left">
+                                    {{errorMessage}}
+                                </p> -->
+
 <div class="container">
   <div class="row">
-    <div class="col text-center">
-      <button class="btn btn-warning btn-lg mt-5" routerLink="/home">Login with Google</button>
+    <div class="col text-center mx-auto">
+      <button class="btn btn-warning btn-lg mt-5 loginBtn loginBtn--google"  (click)="signInWithGoogle()"  >Login with Google</button>
     </div>
   </div>
 </div>
+
+
