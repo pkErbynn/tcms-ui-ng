@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectService } from './services/project.service';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AutthComponent } from './autth/autth.component';
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent],
+  declarations: [AppComponent, HomepageComponent, AutthComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
