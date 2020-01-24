@@ -16,6 +16,7 @@ import {
   AuthService
 } from 'angularx-social-login';
 import { OauthComponent } from './oauth/oauth.component';
+import { HomepageComponent } from './homepage/homepage.component';
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { config } from 'rxjs';
 
@@ -48,9 +49,10 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
-    // HomepageComponent,
+    HomepageComponent,
     AutthComponent,
-    OauthComponent
+    OauthComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

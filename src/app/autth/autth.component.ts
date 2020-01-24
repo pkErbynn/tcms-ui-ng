@@ -7,7 +7,7 @@ import {
   SocialLoginModule,
   AuthServiceConfig
 } from "angularx-social-login";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 import { Socialusers } from "../models/socialUsers.component";
 
 @Component({
@@ -16,14 +16,13 @@ import { Socialusers } from "../models/socialUsers.component";
   styleUrls: ["./autth.component.css"]
 })
 export class AutthComponent implements OnInit {
+  response;
+  socialusers = new Socialusers();
   auth2: any;
   name;
   token;
-  isPreparedFinishLoading:Boolean = false;
+  isPreparedFinishLoading: Boolean = false;
   @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
-
-  // response;
-  // socialusers = new Socialusers();
 
   user: SocialUser;
   loggedIn: boolean;
@@ -34,17 +33,19 @@ export class AutthComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.OAuth.authState.subscribe(user => {
-      this.user = user;
-      this.loggedIn = user != null;
-      console.log(this.user);
-      this.name = this.user.firstName;
-      console.log("#########");
-      console.log(this.name);
-      console.log("#########");
-    });
-    this.googleSDK();
+   ngOnInit() {}
+
+  // ngOnInit() {
+  //   this.OAuth.authState.subscribe(user => {
+  //     this.user = user;
+  //     this.loggedIn = user != null;
+  //     console.log(this.user);
+  //     this.name = this.user.firstName;
+  //     console.log("#########");
+  //     console.log(this.name);
+  //     console.log("#########");
+  //   });
+  //   this.googleSDK();
 
     // console.log("######"  +
     //   JSON.stringify(
@@ -54,90 +55,91 @@ export class AutthComponent implements OnInit {
     //       .getAuthResponse(true)
     //   )
     // );
+  // }
 
-  }
+  // prepareLoginButton() {
+  //   this.auth2.attachClickHandler(
+  //     this.loginElement.nativeElement,
+  //     {},
+  //     googleUser => {
+  //       let profile = googleUser.getBasicProfile();
+  //       console.log("Token || " + googleUser.getAuthResponse().id_token);
+  //       console.log("ID: " + profile.getId());
+  //       console.log("Name: " + profile.getName());
+  //       console.log("Image URL: " + profile.getImageUrl());
+  //       console.log("Email: " + profile.getEmail());
+  //     },
+  //     error => {
+  //       alert(JSON.stringify(error, undefined, 2));
+  //     }
+  //   );
+  //   this.isPreparedFinishLoading = true;
+  //   console.log("finished loadin......");
+  // }
 
-  prepareLoginButton() {
-    this.auth2.attachClickHandler(
-      this.loginElement.nativeElement,
-      {},
-      googleUser => {
-        let profile = googleUser.getBasicProfile();
-        console.log("Token || " + googleUser.getAuthResponse().id_token);
-        console.log("ID: " + profile.getId());
-        console.log("Name: " + profile.getName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+  // signInWithGoogle(): void {
+  //   this.OAuth.signIn(GoogleLoginProvider.PROVIDER_ID);
+  //   console.log("inside google sign in fxn .......");
+  // }
 
-      },
-      error => {
-        alert(JSON.stringify(error, undefined, 2));
-      }
-    );
-    this.isPreparedFinishLoading = true;
-    console.log("finished loadin......")
-  }
+  //   const apiKey = 'my_key';
+  // gapi.load('auth2', () => {
+  //   gapi.auth2.init({
+  //     client_id: apiKey, // note "client_id", not "apiKey"
+  //     hosted_domain: 'my_domain'
+  //   }).then(auth2 => { // wait for initialisation
+  //     if (!auth2.isSignedIn.get()) { // check if already signed in
+  //       auth2.signIn().then(...)
+  //     }
+  //   })
+  // })
 
-  signInWithGoogle(): void {
-    this.OAuth.signIn(GoogleLoginProvider.PROVIDER_ID);
-    console.log("inside google sign in fxn .......");
-  }
+  // googleSDK() {
+  //   window["googleSDKLoaded"] = () => {
+  //     window["gapi"].load("auth2", () => {
+  //       this.auth2 = window["gapi"].auth2.init({
+  //         client_id:
+  //           "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
 
-//   const apiKey = 'my_key';
-// gapi.load('auth2', () => {
-//   gapi.auth2.init({
-//     client_id: apiKey, // note "client_id", not "apiKey"
-//     hosted_domain: 'my_domain'
-//   }).then(auth2 => { // wait for initialisation
-//     if (!auth2.isSignedIn.get()) { // check if already signed in
-//       auth2.signIn().then(...)
-//     }
-//   })
-// })
-
-  googleSDK() {
-    window["googleSDKLoaded"] = () => {
-      window["gapi"].load("auth2", () => {
-        this.auth2 = window["gapi"].auth2.init({
-          client_id:
-            "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
-
-          cookiepolicy: "single_host_origin",
-          scope: "profile email openid",
-
-        });
-        this.prepareLoginButton();
-      });
-      {
-
-      }
-    };
+  //         cookiepolicy: "single_host_origin",
+  //         scope: "profile email openid"
+  //       });
+  //       this.prepareLoginButton();
+  //     });
+  //     {
+  //     }
+  //   };
 
     // tslint:disable-next-line: only-arrow-functions
-    (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "google-jssdk");
+  //   (function(d, s, id) {
+  //     var js,
+  //       fjs = d.getElementsByTagName(s)[0];
+  //     if (d.getElementById(id)) {
+  //       return;
+  //     }
+  //     js = d.createElement(s);
+  //     js.id = id;
+  //     js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+  //     fjs.parentNode.insertBefore(js, fjs);
+  //   })(document, "script", "google-jssdk");
+  // }
+
+  public socialSignIn() {
+    let socialPlatformProvider;
+    // if (socialProvider === "google") {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    // }
+    this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
+      console.log("google", socialusers);
+      console.log(socialusers);
+      console.log("##################################")
+      console.log(socialusers.name)
+      console.log("##################################");
+
+      // this.Savesresponse(this.socialusers);
+    });
   }
 
-  // public socialSignIn(socialProvider: string) {
-  //   let socialPlatformProvider;
-  //   if (socialProvider === "google") {
-  //     socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-  //   }
-  //   this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
-  //     console.log(socialProvider, socialusers);
-  //     console.log(socialusers);
-  //     this.Savesresponse(this.socialusers);
-  //   });
-  // }
 
   // Savesresponse(socialusers: Socialusers) {
   //   this.SocialloginService.Savesresponse(socialusers).subscribe((res: any) => {
@@ -145,11 +147,15 @@ export class AutthComponent implements OnInit {
   //     console.log(res);
   //     this.socialusers = res;
   //     this.response = res.userDetail;
+  //     this.name = res.name
+  //     console.log("############");
+  //     console.log(this.name)
+  //     console.log("##########");
   //     localStorage.setItem("socialusers", JSON.stringify(this.socialusers));
   //     console.log(
   //       localStorage.setItem("socialusers", JSON.stringify(this.socialusers))
   //     );
-  //     this.router.navigate([`/home`]);
+  //     this.router.navigate(['/home']);
   //   });
   // }
 }
