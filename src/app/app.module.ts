@@ -15,6 +15,7 @@ import {
   GoogleLoginProvider,
   AuthService
 } from 'angularx-social-login';
+import { OauthComponent } from './oauth/oauth.component';
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { config } from 'rxjs';
 
@@ -48,7 +49,8 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     // HomepageComponent,
-    AutthComponent
+    AutthComponent,
+    OauthComponent
   ],
   imports: [
     BrowserModule,

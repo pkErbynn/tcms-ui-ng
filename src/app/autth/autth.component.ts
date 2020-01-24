@@ -19,6 +19,7 @@ export class AutthComponent implements OnInit {
   auth2: any;
   name;
   token;
+  isPreparedFinishLoading:Boolean = false;
   @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
 
   // response;
@@ -38,10 +39,10 @@ export class AutthComponent implements OnInit {
       this.user = user;
       this.loggedIn = user != null;
       console.log(this.user);
-      // this.name = this.user.firstName;
-      // console.log("#########");
-      // console.log(this.name);
-      // console.log("#########");
+      this.name = this.user.firstName;
+      console.log("#########");
+      console.log(this.name);
+      console.log("#########");
     });
     this.googleSDK();
 
@@ -73,6 +74,8 @@ export class AutthComponent implements OnInit {
         alert(JSON.stringify(error, undefined, 2));
       }
     );
+    this.isPreparedFinishLoading = true;
+    console.log("finished loadin......")
   }
 
   signInWithGoogle(): void {
@@ -80,18 +83,34 @@ export class AutthComponent implements OnInit {
     console.log("inside google sign in fxn .......");
   }
 
+//   const apiKey = 'my_key';
+// gapi.load('auth2', () => {
+//   gapi.auth2.init({
+//     client_id: apiKey, // note "client_id", not "apiKey"
+//     hosted_domain: 'my_domain'
+//   }).then(auth2 => { // wait for initialisation
+//     if (!auth2.isSignedIn.get()) { // check if already signed in
+//       auth2.signIn().then(...)
+//     }
+//   })
+// })
+
   googleSDK() {
     window["googleSDKLoaded"] = () => {
       window["gapi"].load("auth2", () => {
         this.auth2 = window["gapi"].auth2.init({
           client_id:
             "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
+
           cookiepolicy: "single_host_origin",
-          scope: "profile email openid"
+          scope: "profile email openid",
 
         });
         this.prepareLoginButton();
       });
+      {
+
+      }
     };
 
     // tslint:disable-next-line: only-arrow-functions
