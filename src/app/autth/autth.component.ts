@@ -1,15 +1,14 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { SocialloginService } from '../services/sociallogin.service';
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { SocialloginService } from "../services/sociallogin.service";
 import {
   AuthService,
   GoogleLoginProvider,
   SocialUser,
   SocialLoginModule,
   AuthServiceConfig
-} from 'angularx-social-login';
-import { Router } from '@angular/router';
-import { Socialusers } from '../models/socialUsers.component';
-
+} from "angularx-social-login";
+import { Router } from "@angular/router";
+import { Socialusers } from "../models/socialUsers.component";
 
 @Component({
   selector: "app-autth",
@@ -18,7 +17,8 @@ import { Socialusers } from '../models/socialUsers.component';
 })
 export class AutthComponent implements OnInit {
   auth2: any;
-  name: String;
+  name;
+  token;
   @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
 
   // response;
@@ -38,15 +38,29 @@ export class AutthComponent implements OnInit {
       this.user = user;
       this.loggedIn = user != null;
       console.log(this.user);
+      // this.name = this.user.firstName;
+      // console.log("#########");
+      // console.log(this.name);
+      // console.log("#########");
     });
     this.googleSDK();
+
+    // console.log("######"  +
+    //   JSON.stringify(
+    //     this.auth2.init()
+    //       .getAuthInstance()
+    //       .currentUser.get()
+    //       .getAuthResponse(true)
+    //   )
+    // );
+
   }
 
   prepareLoginButton() {
     this.auth2.attachClickHandler(
       this.loginElement.nativeElement,
       {},
-      (googleUser) => {
+      googleUser => {
         let profile = googleUser.getBasicProfile();
         console.log("Token || " + googleUser.getAuthResponse().id_token);
         console.log("ID: " + profile.getId());
@@ -54,7 +68,6 @@ export class AutthComponent implements OnInit {
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
 
-        this.name = profile.getName();
       },
       error => {
         alert(JSON.stringify(error, undefined, 2));
@@ -74,7 +87,8 @@ export class AutthComponent implements OnInit {
           client_id:
             "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
           cookiepolicy: "single_host_origin",
-          scope: "openid profile email"
+          scope: "profile email openid"
+
         });
         this.prepareLoginButton();
       });
