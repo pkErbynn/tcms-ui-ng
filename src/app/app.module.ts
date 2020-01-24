@@ -15,6 +15,7 @@ import {
   GoogleLoginProvider,
   AuthService
 } from 'angularx-social-login';
+// import { HomepageComponent } from './homepage/homepage.component';
 // import { config } from 'rxjs';
 
 const googleAuthClientId =
@@ -46,7 +47,7 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
-    // HomepageComponent
+    // HomepageComponent,
     AutthComponent
   ],
   imports: [

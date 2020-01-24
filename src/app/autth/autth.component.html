@@ -1,14 +1,11 @@
-
- <!-- <p style="color:#E92626;font-size:20px;font-weight:normal" Class="success" align="left">
-                                    {{errorMessage}}
-                                </p> -->
-
 <div class="container">
   <div class="row">
     <div class="col text-center mx-auto">
-      <button class="btn btn-warning btn-lg mt-5 loginBtn loginBtn--google"  (click)="signInWithGoogle()"  >Login with Google</button>
+      <button class="btn btn-warning btn-lg mt-5 loginBtn loginBtn--google"  (click)="signInWithGoogle()"  #loginRef>Login with Google</button>
     </div>
   </div>
 </div>
+
+<p class="lead">{{name}}</p>
 
 
