@@ -7,7 +7,7 @@ import {
   SocialLoginModule,
   AuthServiceConfig
 } from "angularx-social-login";
-import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Router } from "@angular/router";
 // import { Socialusers } from "../models/socialUsers.component";
 
 @Component({
@@ -19,14 +19,12 @@ export class AutthComponent implements OnInit {
   response;
   // socialusers = new Socialusers();
   auth2: any;
-  name;
-  token;
-  isPreparedFinishLoading: Boolean = false;
-  domain;
+  name: String;
+  @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
 
   email;
 
-  @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
+  // @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
 
   user: SocialUser;
   loggedIn: boolean;
@@ -37,67 +35,66 @@ export class AutthComponent implements OnInit {
     private router: Router
   ) {}
 
-  // ngOnInit() {
-  //   this.googleSDK();
-  // }
+  ngOnInit() {
+    this.OAuth.authState.subscribe(user => {
+      this.user = user;
+      this.loggedIn = user != null;
+      console.log(this.user);
+    });
+    this.googleSDK();
+  }
 
-  // ngOnInit() {
-  //   this.OAuth.authState.subscribe(user => {
-  //     this.user = user;
-  //     this.loggedIn = user != null;
-  //     console.log(this.user);
-  //     this.name = this.user.firstName;
-  //     console.log("#########");
-  //     console.log(this.name);
-  //     console.log("#########");
-  //   });
-  //   this.googleSDK();
+  prepareLoginButton() {
+    this.auth2.attachClickHandler(
+      this.loginElement.nativeElement,
+      {},
+      googleUser => {
+        let profile = googleUser.getBasicProfile();
+        console.log("Token || " + googleUser.getAuthResponse().id_token);
+        console.log("ID: " + profile.getId());
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
 
-  // console.log("######"  +
-  //   JSON.stringify(
-  //     this.auth2.init()
-  //       .getAuthInstance()
-  //       .currentUser.get()
-  //       .getAuthResponse(true)
-  //   )
-  // );
-  // }
-
-  // prepareLoginButton() {
-  //   this.auth2.attachClickHandler(
-  //     this.loginElement.nativeElement,
-  //     {},
-  //     googleUser => {
-  //       let profile = googleUser.getBasicProfile();
-  //       console.log("Token || " + googleUser.getAuthResponse().id_token);
-  //       console.log("ID: " + profile.getId());
-  //       console.log("Name: " + profile.getName());
-  //       console.log("Image URL: " + profile.getImageUrl());
-  //       console.log("Email: " + profile.getEmail());
-  //       //YOUR CODE HERE
-  //     },
-  //     error => {
-  //       alert(JSON.stringify(error, undefined, 2));
-  //     }
-  //   );
-  // }
+        this.name = profile.getName();
+      },
+      error => {
+        alert(JSON.stringify(error, undefined, 2));
+      }
+    );
+  }
 
   // signInWithGoogle(): void {
   //   this.OAuth.signIn(GoogleLoginProvider.PROVIDER_ID);
   //   console.log("inside google sign in fxn .......");
   // }
 
-  //   const apiKey = 'my_key';
-  // gapi.load('auth2', () => {
-  //   gapi.auth2.init({
-  //     client_id: apiKey, // note "client_id", not "apiKey"
-  //     hosted_domain: 'my_domain'
-  //   }).then(auth2 => { // wait for initialisation
-  //     if (!auth2.isSignedIn.get()) { // check if already signed in
-  //       auth2.signIn().then(...)
-  //     }
-  //   })
-  // })
+  googleSDK() {
+    window["googleSDKLoaded"] = () => {
+      window["gapi"].load("auth2", () => {
+        this.auth2 = window["gapi"].auth2.init({
+          client_id:
+            "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
+          cookiepolicy: "single_host_origin",
+          scope: "openid profile email"
+        });
+        this.prepareLoginButton();
+      });
+    };
+
+    // tslint:disable-next-line: only-arrow-functions
+    (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://apis.google.com/js/platform.js?onload=googleSDKLoaded";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "google-jssdk");
+  }
 
   // googleSDK() {
   //   window["googleSDKLoaded"] = () => {
@@ -150,7 +147,7 @@ export class AutthComponent implements OnInit {
       console.log("Email >> ", this.email);
       let mail: String = this.email;
       let submail = mail.substr(-11);
-      this.domain = submail;
+      // this.domain = submail;
       console.log("Domain >> ", submail);
     });
   }
