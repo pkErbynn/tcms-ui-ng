@@ -8,7 +8,7 @@ import {
   AuthServiceConfig
 } from "angularx-social-login";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Socialusers } from "../models/socialUsers.component";
+// import { Socialusers } from "../models/socialUsers.component";
 
 @Component({
   selector: "app-autth",
@@ -17,7 +17,7 @@ import { Socialusers } from "../models/socialUsers.component";
 })
 export class AutthComponent implements OnInit {
   response;
-  socialusers = new Socialusers();
+  // socialusers = new Socialusers();
   auth2: any;
   name;
   token;
@@ -37,7 +37,9 @@ export class AutthComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  // ngOnInit() {
+  //   this.googleSDK();
+  // }
 
   // ngOnInit() {
   //   this.OAuth.authState.subscribe(user => {
@@ -72,13 +74,12 @@ export class AutthComponent implements OnInit {
   //       console.log("Name: " + profile.getName());
   //       console.log("Image URL: " + profile.getImageUrl());
   //       console.log("Email: " + profile.getEmail());
+  //       //YOUR CODE HERE
   //     },
   //     error => {
   //       alert(JSON.stringify(error, undefined, 2));
   //     }
   //   );
-  //   this.isPreparedFinishLoading = true;
-  //   console.log("finished loadin......");
   // }
 
   // signInWithGoogle(): void {
@@ -103,7 +104,7 @@ export class AutthComponent implements OnInit {
   //     window["gapi"].load("auth2", () => {
   //       this.auth2 = window["gapi"].auth2.init({
   //         client_id:
-  //           "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com",
+  //           "859455735473-bgmqqco3q588kgaog0g2k0fmnur5qvf9.apps.googleusercontent.com",
 
   //         cookiepolicy: "single_host_origin",
   //         scope: "profile email openid"
@@ -114,7 +115,7 @@ export class AutthComponent implements OnInit {
   //     }
   //   };
 
-  // tslint:disable-next-line: only-arrow-functions
+  //   // tslint:disable-next-line: only-arrow-functions
   //   (function(d, s, id) {
   //     var js,
   //       fjs = d.getElementsByTagName(s)[0];
@@ -128,12 +129,15 @@ export class AutthComponent implements OnInit {
   //   })(document, "script", "google-jssdk");
   // }
 
+  //// right
   public socialSignIn() {
     let socialPlatformProvider;
     // if (socialProvider === "google") {
     socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     // }
     this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
+      // console.log("Id Token  |  ", socialusers.getAuthResponse().id_token);
+      console.log("Email  |   ", socialusers.email);
       console.log("google", socialusers);
       console.log(socialusers);
       console.log("##################################");

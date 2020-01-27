@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 // import { ProjectService } from "../services/project.service";
-import { Socialusers } from "../models/socialUsers.component";
+// import { Socialusers } from "../models/socialUsers.component";
 import { AuthService } from "angularx-social-login";
 import { Router } from "@angular/router";
 import { OpenidService } from "../services/openid.service";
@@ -12,7 +12,7 @@ import { OpenidService } from "../services/openid.service";
   styleUrls: ["./homepage.component.css"]
 })
 export class HomepageComponent implements OnInit {
-  socialusers = new Socialusers();
+  // socialusers = new Socialusers();
   response;
   responses = [];
 
