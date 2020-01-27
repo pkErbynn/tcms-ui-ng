@@ -22,6 +22,10 @@ export class AutthComponent implements OnInit {
   name;
   token;
   isPreparedFinishLoading: Boolean = false;
+  domain;
+
+  email;
+
   @ViewChild("loginRef", { static: true }) loginElement: ElementRef;
 
   user: SocialUser;
@@ -33,7 +37,7 @@ export class AutthComponent implements OnInit {
     private router: Router
   ) {}
 
-   ngOnInit() {}
+  ngOnInit() {}
 
   // ngOnInit() {
   //   this.OAuth.authState.subscribe(user => {
@@ -47,14 +51,14 @@ export class AutthComponent implements OnInit {
   //   });
   //   this.googleSDK();
 
-    // console.log("######"  +
-    //   JSON.stringify(
-    //     this.auth2.init()
-    //       .getAuthInstance()
-    //       .currentUser.get()
-    //       .getAuthResponse(true)
-    //   )
-    // );
+  // console.log("######"  +
+  //   JSON.stringify(
+  //     this.auth2.init()
+  //       .getAuthInstance()
+  //       .currentUser.get()
+  //       .getAuthResponse(true)
+  //   )
+  // );
   // }
 
   // prepareLoginButton() {
@@ -110,7 +114,7 @@ export class AutthComponent implements OnInit {
   //     }
   //   };
 
-    // tslint:disable-next-line: only-arrow-functions
+  // tslint:disable-next-line: only-arrow-functions
   //   (function(d, s, id) {
   //     var js,
   //       fjs = d.getElementsByTagName(s)[0];
@@ -127,19 +131,25 @@ export class AutthComponent implements OnInit {
   public socialSignIn() {
     let socialPlatformProvider;
     // if (socialProvider === "google") {
-      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     // }
     this.OAuth.signIn(socialPlatformProvider).then(socialusers => {
       console.log("google", socialusers);
       console.log(socialusers);
-      console.log("##################################")
-      console.log(socialusers.name)
+      console.log("##################################");
+      console.log(socialusers.name);
       console.log("##################################");
 
       // this.Savesresponse(this.socialusers);
+
+      this.email = socialusers.email;
+      console.log("Email >> ", this.email);
+      let mail: String = this.email;
+      let submail = mail.substr(-11);
+      this.domain = submail;
+      console.log("Domain >> ", submail);
     });
   }
-
 
   // Savesresponse(socialusers: Socialusers) {
   //   this.SocialloginService.Savesresponse(socialusers).subscribe((res: any) => {

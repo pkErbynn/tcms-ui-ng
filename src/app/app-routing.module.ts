@@ -10,7 +10,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: "home", component: HomepageComponent },
   { path: "auth", component: AutthComponent },
-  // { path: "oo", component: OauthComponent },
+  { path: " ", component: AutthComponent },
   { path: "land", component: LandComponent }
 ];
 

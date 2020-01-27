@@ -1,29 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ProjectService } from './services/project.service';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+// import { ProjectService } from './services/project.service';
 // import { HomepageComponent } from './homepage/homepage.component';
-import { AutthComponent } from './autth/autth.component';
+import { AutthComponent } from "./autth/autth.component";
 
 import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
   AuthService
-} from 'angularx-social-login';
-import { OauthComponent } from './oauth/oauth.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { LandComponent } from './land/land.component';
+} from "angularx-social-login";
+import { OauthComponent } from "./oauth/oauth.component";
+import { HomepageComponent } from "./homepage/homepage.component";
+import { LandComponent } from "./land/land.component";
+import { OpenidService } from "./services/openid.service";
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { config } from 'rxjs';
 
 const googleAuthClientId =
-  '349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com';
+  "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com";
 
 const config = new AuthServiceConfig([
   {
@@ -55,7 +55,6 @@ export function provideConfig() {
     AutthComponent,
     OauthComponent,
     HomepageComponent,
-    LoginComponent,
     LandComponent
   ],
   imports: [
@@ -69,7 +68,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    OpenidService
   ],
   bootstrap: [AppComponent]
 })
