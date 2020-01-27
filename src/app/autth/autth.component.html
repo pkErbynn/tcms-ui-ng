@@ -1,12 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col text-center mx-auto">
-      <button class="btn btn-warning btn-lg mt-5 loginBtn loginBtn--google" (click)="socialSignIn()"  #loginRef>Login with Google</button>
+      <button
+        class="btn btn-warning btn-lg mt-5 loginBtn loginBtn--google"
+        (click)="socialSignIn()"
+        #loginRef
+        routerLink="/home"
+      >
+        Login with Google
+      </button>
     </div>
+
+    <!-- <a routerLink="home" class="btn btn-primary">To Home</a> -->
   </div>
 </div>
+<router-outlet></router-outlet>
+<!-- <app-homepage></app-homepage> -->
+<!-- <app-autth></app-autth> -->
 
-<p class="lead" *ngIf=isPreparedFinishLoading>{{name}}</p>
+<!-- <p class="lead" *ngIf=isPreparedFinishLoading>{{name}}</p> -->
 
-
-
+<p class="lead" *ngIf="isPreparedFinishLoading">{{ socialusers.name }}</p>

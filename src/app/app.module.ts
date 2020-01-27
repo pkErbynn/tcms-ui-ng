@@ -17,6 +17,8 @@ import {
 } from 'angularx-social-login';
 import { OauthComponent } from './oauth/oauth.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+import { LandComponent } from './land/land.component';
 // import { HomepageComponent } from './homepage/homepage.component';
 // import { config } from 'rxjs';
 
@@ -52,7 +54,9 @@ export function provideConfig() {
     HomepageComponent,
     AutthComponent,
     OauthComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginComponent,
+    LandComponent
   ],
   imports: [
     BrowserModule,
