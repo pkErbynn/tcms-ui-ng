@@ -23,7 +23,7 @@ import { OpenidService } from "./services/openid.service";
 // import { config } from 'rxjs';
 
 const googleAuthClientId =
-  "349252575004-gdssfgcgp5hcov3d5co7t07tuuk8iuvr.apps.googleusercontent.com";
+  "859455735473-bgmqqco3q588kgaog0g2k0fmnur5qvf9.apps.googleusercontent.com";
 
 const config = new AuthServiceConfig([
   {
