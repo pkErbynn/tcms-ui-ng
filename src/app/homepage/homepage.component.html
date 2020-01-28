@@ -14,7 +14,6 @@
       <a class="btn btn-primary btn-sm text-white" (click)="onRequest()">
         Make Request from Server</a
       >
-
       <br /><br />
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let server of responses">
@@ -24,3 +23,7 @@
     </div>
   </div>
 </div>
+<p>{{ hostDomain }}</p>
+
+<!-- <app-autth (msgEvent)="receiveDomain($event)"></app-autth>
+<h2>hd => {{ hd }}</h2> -->

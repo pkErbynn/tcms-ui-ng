@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from "@angular/core";
+import { Component, OnInit, ElementRef, Input } from "@angular/core";
 // import { ProjectService } from "../services/project.service";
 // import { Socialusers } from "../models/socialUsers.component";
 import { AuthService } from "angularx-social-login";
@@ -15,6 +15,10 @@ export class HomepageComponent implements OnInit {
   // socialusers = new Socialusers();
   response;
   responses = [];
+  hd;
+
+  @Input()
+  hostDomain;
 
   constructor(
     // private corsService: ProjectService,
@@ -24,12 +28,7 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.socialusers = JSON.parse(localStorage.getItem("socialusers"));
-    // console.log(this.socialusers.image);
-    // this.oidService.getPong().subscribe(resp => {
-    //   this.response = resp;
-    //   console.log("onInit response >>>> ", this.response);
-    // });
+    console.log("Hostname inside homepage onInit >>> ", this.hostDomain);
   }
 
   onRequest() {
@@ -41,7 +40,14 @@ export class HomepageComponent implements OnInit {
       console.log("response >>>> ", this.response);
     });
     console.log("Outside response >>> ", this.response);
+
+    console.log("Hostname inside homepage >>> ", this.hostDomain);
   }
+
+  // receiveDomain($event) {
+  //   debugger;
+  //   this.hd = $event;
+  // }
 
   // logout() {
   //   this.OAuth.signOut().then(data => {

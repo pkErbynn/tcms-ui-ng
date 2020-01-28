@@ -1,56 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>TCMS</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8">
+  <title>TCMS</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="google-signin-scope" content="profile email openid">
+          <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <meta name="google-signin-scope" content="profile email" />
-    <meta
-      name="google-signin-client_id"
-      content="859455735473-bgmqqco3q588kgaog0g2k0fmnur5qvf9.apps.googleusercontent.com"
-    />
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Font Awesome -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
-    <!-- Material Design Bootstrap -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet"> -->
-  </head>
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+<!-- Material Design Bootstrap -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet"> -->
+</head>
 
-  <body>
-    <app-root>Loading...</app-root>
+<body>
+  <app-root>Loading...</app-root>
+</body>
 
-    <!-- <script>
-      function onSignIn(googleUser) {
-        // const googleUser = gapi.auth2.getAuthInstance().currentUser.get();
-        // if (googleUser.getHostedDomain() !== "mysite.com") {
-        //   console.log("goooooo  >>>>>>>> ");
-        // } else {
-        //   console.log("Stooooop   >>>>>>>> ");
-        // }
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log("Name: " + profile.getName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
-        console.log("Hosted Domain: " + googleUser.getHostedDomain());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        var access_token = googleUser.getAuthResponse().access_token;
-        console.log("ID Token: " + id_token);
-        console.log("Access Token: " + access_token);
-      }
-    </script> -->
-  </body>
 </html>
